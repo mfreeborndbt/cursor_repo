@@ -18,4 +18,7 @@ models:
       
       - name: avg_home_price_2025
         description: "Average home price for the year 2025 (based on 10 months of data)"
+      
+      - name: home_value_pct_change
+        description: "Percent change in home value from 2010 to 2025"
 

@@ -12,7 +12,11 @@ final as (
     select
         CITY as city,
         STATE as state,
-        POPULATION_DENSITY_CHANGE as pop_density_change_pct
+        -- Clean the percentage value: remove '%', '!', and other non-numeric characters, then convert to number
+        try_cast(
+            regexp_replace(POPULATION_DENSITY_CHANGE, '[^0-9.-]', '') 
+            as decimal(10,2)
+        ) as pop_density_change_pct
     from source
 )
 

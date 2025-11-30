@@ -26,5 +26,5 @@ models:
         description: "State abbreviation"
         
       - name: pop_density_change_pct
-        description: "Percentage change in population density"
+        description: "Percentage change in population density (cleaned from string format to numeric)"
 

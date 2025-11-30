@@ -6,6 +6,7 @@ models:
       Fact table combining Zillow home price data with population density changes.
       Contains average home prices for 2010 and 2025 alongside population density change percentages.
       Joined on city name for the top 150 cities by size rank.
+      Includes normalized values (0-1 scale) for both percent change metrics.
     tests:
       - dbt_expectations.expect_table_row_count_to_equal:
           arguments:
@@ -23,6 +24,15 @@ models:
       - name: avg_home_price_2025
         description: "Average home price for the year 2025 (based on 10 months of data)"
       
+      - name: home_value_pct_change
+        description: "Percent change in home value from 2010 to 2025"
+      
       - name: pop_density_change_pct
         description: "Percentage change in population density"
+      
+      - name: home_value_pct_change_normalized
+        description: "Home value percent change normalized to 0-1 scale using min-max normalization"
+      
+      - name: pop_density_pct_change_normalized
+        description: "Population density percent change normalized to 0-1 scale using min-max normalization"
 

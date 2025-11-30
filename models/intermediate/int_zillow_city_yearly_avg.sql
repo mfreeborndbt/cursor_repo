@@ -36,7 +36,10 @@ final as (
         city,
         state,
         max(case when price_year = 2010 then avg_home_price end) as avg_home_price_2010,
-        max(case when price_year = 2025 then avg_home_price end) as avg_home_price_2025
+        max(case when price_year = 2025 then avg_home_price end) as avg_home_price_2025,
+        ((max(case when price_year = 2025 then avg_home_price end) - 
+          max(case when price_year = 2010 then avg_home_price end)) / 
+          max(case when price_year = 2010 then avg_home_price end)) * 100 as home_value_pct_change
     from yearly_averages
     group by city, state
 )
