@@ -7,8 +7,11 @@ models:
       calculating average prices for years 2010 and 2025.
       Note: 2025 data only includes 10 months of data.
     columns:
-      - name: city_state
-        description: "Combined city and state (e.g., 'New York, NY')"
+      - name: city
+        description: "City name"
+      
+      - name: state
+        description: "State abbreviation"
       
       - name: avg_home_price_2010
         description: "Average home price for the year 2010"

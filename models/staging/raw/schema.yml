@@ -2,10 +2,13 @@ version: 2
 
 models:
   - name: stg_zillow_city_data
-    description: "Staging model for Zillow city-level home price data, unpivoted from wide format to long format"
+    description: "Staging model for Zillow city-level home price data, unpivoted from wide format to long format. Filtered for cities with SIZERANK <= 150"
     columns:
-      - name: city_state
-        description: "Combined city and state (e.g., 'New York, NY')"
+      - name: city
+        description: "City name"
+        
+      - name: state
+        description: "State abbreviation"
         
       - name: price_date
         description: "Date of the home price observation"
@@ -16,8 +19,11 @@ models:
   - name: stg_city_pop_density_change
     description: "Staging model for city population density change data"
     columns:
-      - name: city_state
-        description: "Combined city and state (e.g., 'New York, NY')"
+      - name: city
+        description: "City name"
+        
+      - name: state
+        description: "State abbreviation"
         
       - name: pop_density_change_pct
         description: "Percentage change in population density"

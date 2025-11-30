@@ -14,13 +14,14 @@ pop_density as (
 
 final as (
     select
-        z.city_state,
+        z.city,
+        z.state,
         z.avg_home_price_2010,
         z.avg_home_price_2025,
         p.pop_density_change_pct
     from zillow_yearly z
     inner join pop_density p
-        on z.city_state = p.city_state
+        on z.city = p.city
 )
 
 select * from final
