@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_zillow_city_data
+    description: "Staging model for Zillow city-level home price data, unpivoted from wide format to long format"
+    columns:
+      - name: county_name
+        description: "Name of the county"
+        
+      - name: metro
+        description: "Metropolitan area identifier"
+        
+      - name: region_id
+        description: "Unique identifier for the region"
+        
+      - name: region_name
+        description: "Name of the region/city"
+        
+      - name: region_type
+        description: "Type of region"
+        
+      - name: size_rank
+        description: "Size ranking of the region"
+        
+      - name: state_code
+        description: "State abbreviation code"
+        
+      - name: state_name
+        description: "Full name of the state"
+        
+      - name: price_date
+        description: "Date of the home price observation"
+        
+      - name: home_price
+        description: "Median home price value for the region on the given date"
+
+  - name: stg_city_pop_density_change
+    description: "Staging model for city population density change data"
+

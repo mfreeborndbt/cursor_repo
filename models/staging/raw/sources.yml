@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    database: MILES_F_CURSOR
+    schema: RAW
+    tables:
+      - name: zillow_city_data
+        description: "Zillow home price data by city with monthly price points"
+        
+      - name: city_pop_density_change
+        description: "City population density change data"
+
