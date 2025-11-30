@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: fct_city_price_density_analysis
+    description: >
+      Fact table combining Zillow home price data with population density changes.
+      Contains average home prices for 2010 and 2025 alongside population density change percentages.
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal:
+          arguments:
+            value: 99
+    columns:
+      - name: city_state
+        description: "Combined city and state (e.g., 'New York, NY')"
+      
+      - name: avg_home_price_2010
+        description: "Average home price for the year 2010"
+      
+      - name: avg_home_price_2025
+        description: "Average home price for the year 2025 (based on 10 months of data)"
+      
+      - name: pop_density_change_pct
+        description: "Percentage change in population density"
+

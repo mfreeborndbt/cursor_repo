@@ -18,14 +18,7 @@ with unpivoted as (
 
 final as (
     select
-        COUNTYNAME as county_name,
-        METRO as metro,
-        REGIONID as region_id,
-        REGIONNAME as region_name,
-        REGIONTYPE as region_type,
-        SIZERANK as size_rank,
-        STATE as state_code,
-        STATENAME as state_name,
+        REGIONNAME || ', ' || STATE as city_state,
         to_date(date_str, 'YYYY-MM-DD') as price_date,
         home_price
     from unpivoted

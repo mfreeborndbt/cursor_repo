@@ -7,38 +7,12 @@ models:
       calculating average prices for years 2010 and 2025.
       Note: 2025 data only includes 10 months of data.
     columns:
-      - name: region_name
-        description: City name
-        tests:
-          - not_null
-      
-      - name: state_code
-        description: Two-letter state code
-      
-      - name: state_name
-        description: Full state name
-      
-      - name: county_name
-        description: County name
-      
-      - name: metro
-        description: Metropolitan area name
-      
-      - name: region_id
-        description: Unique identifier for the region
-        tests:
-          - not_null
-          - unique
-      
-      - name: region_type
-        description: Type of region (e.g., City)
-      
-      - name: size_rank
-        description: Ranking by population size
+      - name: city_state
+        description: "Combined city and state (e.g., 'New York, NY')"
       
       - name: avg_home_price_2010
-        description: Average home price for the year 2010
+        description: "Average home price for the year 2010"
       
       - name: avg_home_price_2025
-        description: Average home price for the year 2025 (based on 10 months of data)
+        description: "Average home price for the year 2025 (based on 10 months of data)"
 

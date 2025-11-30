@@ -10,7 +10,8 @@ with source as (
 
 final as (
     select
-        *
+        CITY || ', ' || STATE as city_state,
+        POPULATION_DENSITY_CHANGE as pop_density_change_pct
     from source
 )
 
