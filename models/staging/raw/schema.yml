@@ -1,8 +1,20 @@
 version: 2
 
 models:
+  - name: stg_zillow_city_data_filtered
+    description: "Pre-filtered Zillow data selecting only 2010 and 2025 date columns, cities with SIZERANK <= 150, and excluding Rochester"
+    columns:
+      - name: REGIONNAME
+        description: "City name"
+        
+      - name: STATE
+        description: "State abbreviation"
+        
+      - name: SIZERANK
+        description: "Population size ranking"
+
   - name: stg_zillow_city_data
-    description: "Staging model for Zillow city-level home price data, unpivoted from wide format to long format. Filtered for cities with SIZERANK <= 150"
+    description: "Staging model for Zillow city-level home price data, unpivoted from wide format to long format"
     columns:
       - name: city
         description: "City name"

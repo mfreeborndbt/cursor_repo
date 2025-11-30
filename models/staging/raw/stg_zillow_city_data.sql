@@ -4,12 +4,16 @@
     )
 }}
 
-with unpivoted as (
+with filtered_data as (
+    select * from {{ ref('stg_zillow_city_data_filtered') }}
+),
+
+unpivoted as (
     {{
         dbt_utils.unpivot(
-            relation=source('raw', 'zillow_city_data'),
+            relation=ref('stg_zillow_city_data_filtered'),
             cast_to='decimal(18,2)',
-            exclude=['COUNTYNAME', 'METRO', 'REGIONID', 'REGIONNAME', 'REGIONTYPE', 'SIZERANK', 'STATE', 'STATENAME'],
+            exclude=['REGIONNAME', 'STATE', 'SIZERANK'],
             field_name='date_str',
             value_name='home_price'
         )
@@ -24,7 +28,6 @@ final as (
         home_price
     from unpivoted
     where home_price is not null
-        and SIZERANK <= 150
 )
 
 select * from final
