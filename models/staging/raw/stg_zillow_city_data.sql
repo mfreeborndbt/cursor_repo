@@ -4,20 +4,54 @@
     )
 }}
 
-with filtered_data as (
+with source as (
     select * from {{ ref('stg_zillow_city_data_filtered') }}
 ),
 
 unpivoted as (
-    {{
-        dbt_utils.unpivot(
-            relation=ref('stg_zillow_city_data_filtered'),
-            cast_to='decimal(18,2)',
-            exclude=['REGIONNAME', 'STATE', 'SIZERANK'],
-            field_name='date_str',
-            value_name='home_price'
-        )
-    }}
+    select REGIONNAME, STATE, SIZERANK, '2010-01-31' as date_str, "2010-01-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-02-28' as date_str, "2010-02-28" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-03-31' as date_str, "2010-03-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-04-30' as date_str, "2010-04-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-05-31' as date_str, "2010-05-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-06-30' as date_str, "2010-06-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-07-31' as date_str, "2010-07-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-08-31' as date_str, "2010-08-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-09-30' as date_str, "2010-09-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-10-31' as date_str, "2010-10-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-11-30' as date_str, "2010-11-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2010-12-31' as date_str, "2010-12-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-01-31' as date_str, "2025-01-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-02-28' as date_str, "2025-02-28" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-03-31' as date_str, "2025-03-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-04-30' as date_str, "2025-04-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-05-31' as date_str, "2025-05-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-06-30' as date_str, "2025-06-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-07-31' as date_str, "2025-07-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-08-31' as date_str, "2025-08-31" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-09-30' as date_str, "2025-09-30" as home_price from source
+    union all
+    select REGIONNAME, STATE, SIZERANK, '2025-10-31' as date_str, "2025-10-31" as home_price from source
 ),
 
 final as (
